@@ -46,3 +46,8 @@ RUN mkdir -p /tmp/nexuscli && \
     cd client && \
     python setup.py install && \
     pip install -r requirements.txt
+
+COPY . ${HOME}
+USER root
+RUN chown -R ${NB_UID} ${HOME}
+USER ${NB_USER}
